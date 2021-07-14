@@ -5,7 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Organizações Tabajara</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">     
+    <link rel="stylesheet" type="text/css" href="css/style.css"> 
+    <script>
+        function salvarForm() {
+            if(typeof(Storage) !== "undefined") {
+                if(localStorage.cont) {
+                    localStorage.cont = Number(localStorage.cont)+1;
+                }else{
+                    localStorage.cont = 1;
+                }
+                cad = document.getElementById('email').value;
+                localStorage.setItem("cad_"+localStorage.cont,cad);
+            }else{
+
+            }
+        }
+    </script> 
 </head>
 
 <body>
@@ -127,9 +142,9 @@
       <div class="col-lg-6 mx-auto">
         <p class="fs-5 mb-4">Para garantir o seu produto deixei seu e-mail para que possamos entrar em contato.</p>
 
-        <input type="email" class="mx-auto form-control justify-content-sm-center" id="floatingInput" placeholder="name@example.com"><br>
+        <input type="email" class="mx-auto form-control justify-content-sm-center" id="email" placeholder="email"><br>
         <div class="mx-auto d-grid gap-2 d-sm-flex justify-content-sm-center">
-        <button type="button" class="btn btn-primary btn-lg px-4 gap-3">OK</button>
+        <button type="button" onclick="salvarForm()" class="btn btn-primary btn-lg px-4 gap-3">OK</button>
         </div>
     </div>
   </div>
